@@ -15,6 +15,7 @@ public class PaymentService {
     private PaymentRepository repository;
 
     public Payment doPayment(Payment payment) {
+        System.out.println("popo");
         payment.setPaymentStatus(paymentProcessing());
         payment.setTransactionId(UUID.randomUUID().toString());
 

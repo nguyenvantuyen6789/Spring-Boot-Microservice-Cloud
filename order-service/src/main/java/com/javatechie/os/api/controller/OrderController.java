@@ -18,6 +18,8 @@ public class OrderController {
 
     @PostMapping("/bookOrder")
     public TransactionResponse bookOrder(@RequestBody TransactionRequest request) {
+        System.out.println("request");
+        System.out.println(request);
         return servive.saveOrder(request);
     }
 
