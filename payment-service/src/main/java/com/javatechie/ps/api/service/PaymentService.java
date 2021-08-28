@@ -17,6 +17,7 @@ public class PaymentService {
     public Payment doPayment(Payment payment) {
         payment.setPaymentStatus(paymentProcessing());
         payment.setTransactionId(UUID.randomUUID().toString());
+
         return repository.save(payment);
     }
 

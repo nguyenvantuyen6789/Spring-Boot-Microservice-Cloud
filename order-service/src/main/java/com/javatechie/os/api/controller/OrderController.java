@@ -1,7 +1,8 @@
 package com.javatechie.os.api.controller;
 
-import com.javatechie.os.api.entity.Order;
-import com.javatechie.os.api.service.OrderSerive;
+import com.javatechie.os.api.common.TransactionRequest;
+import com.javatechie.os.api.common.TransactionResponse;
+import com.javatechie.os.api.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    private OrderSerive serive;
+    private OrderService servive;
 
     @PostMapping("/bookOrder")
-    public Order bookOrder(@RequestBody Order order) {
-        return serive.saveOrder(order);
+    public TransactionResponse bookOrder(@RequestBody TransactionRequest request) {
+        return servive.saveOrder(request);
     }
 
 }

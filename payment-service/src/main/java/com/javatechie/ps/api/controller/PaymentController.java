@@ -15,11 +15,11 @@ import java.util.Random;
 public class PaymentController {
 
     @Autowired
-    private PaymentService serive;
+    private PaymentService service;
 
     @PostMapping("/doPayment")
     public Payment doPayment(@RequestBody Payment payment) {
-        return serive.doPayment(payment);
+        return service.doPayment(payment);
     }
 
 }
