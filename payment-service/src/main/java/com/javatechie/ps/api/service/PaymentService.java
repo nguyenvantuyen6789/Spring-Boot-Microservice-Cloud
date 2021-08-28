@@ -15,7 +15,6 @@ public class PaymentService {
     private PaymentRepository repository;
 
     public Payment doPayment(Payment payment) {
-        System.out.println("popo");
         payment.setPaymentStatus(paymentProcessing());
         payment.setTransactionId(UUID.randomUUID().toString());
 
@@ -27,6 +26,6 @@ public class PaymentService {
     }
 
     public Payment findPaymentHistoryByOrderId(int orderId) {
-        return repository.findByOrderId(orderId);
+        return repository.findByOrderId(orderId).get(0);
     }
 }

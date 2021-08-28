@@ -28,11 +28,8 @@ public class OrderService {
         payment.setOrderId(order.getId());
         payment.setAmount(order.getQty());
 
-        System.out.println("hh1");
-        System.out.println(payment);
         Payment paymentResponse = template.postForObject("http://PAYMENT-SERVICE/payment/doPayment", payment, Payment.class);
 
-        System.out.println("hh2");
         response = paymentResponse.getPaymentStatus().equals("success") ? "payment processing successfully and order placed" : "there is a failure in payment api, order added to cart";
 
         return new TransactionResponse(order, paymentResponse.getAmount(), paymentResponse.getTransactionId(), response);

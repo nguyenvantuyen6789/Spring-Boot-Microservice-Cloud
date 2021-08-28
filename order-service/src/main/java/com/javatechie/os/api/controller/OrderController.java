@@ -17,9 +17,8 @@ public class OrderController {
     private OrderService servive;
 
     @PostMapping("/bookOrder")
-    public TransactionResponse bookOrder(@RequestBody TransactionRequest request) {
-        System.out.println("request");
-        System.out.println(request);
+    public TransactionResponse bookOrder(@RequestBody TransactionRequest request) throws InterruptedException {
+        Thread.sleep(6000);
         return servive.saveOrder(request);
     }
 
